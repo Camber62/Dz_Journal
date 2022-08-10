@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {useRef} from "react";
 
+
 // function App() {
 //   return (
 //     <div className="App">
@@ -23,41 +24,42 @@ import {useRef} from "react";
 //   );
 // }
 
-function array (event){
+function Array(event) {
+
     let count = {}
 
-    for(let i = 0 ; i < event.length; i++){
+    for (let i = 0; i < event.length; i++) {
         const letter = event[i]
 
-        if(count[letter]===undefined){
-            count[letter]=0
+        if (count[letter] === undefined) {
+            count[letter] = 0
         }
         count[letter]++
     }
-    console.log(count)
+    return(
+        <div className="result">{count}</div>
+    )
+    // console.log(count)
 }
-
 
 
 function RenderComponent() {
-const inputRef = useRef(null)
-function onClick(){
-    array(inputRef.current.value)
+    const inputRef = useRef(null)
 
-}
+    function onClick() {
+        Array(inputRef.current.value)
 
+    }
 
 
     return (
         <div className='render'>
             <input type="text" ref={inputRef}/>
-            <div className="resault"/>
-            <button onClick={onClick} type='submit'>resault</button>
+            <button onClick={onClick} type='submit'>result</button>
+            <Array/>
         </div>
     )
 }
-
-
 
 
 // export default App;
