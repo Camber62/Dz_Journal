@@ -1,38 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
 import React, {useRef,useState} from 'react';
 
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-
-
-
-function RenderComponent() {
+const RenderComponent = () => {
     const inputRef = useRef(null)
-
-
-
-
 
 
     const countries = [];
@@ -78,7 +48,7 @@ function RenderComponent() {
             <button onClick={onClick} type='submit'>result</button>
             <div className="result">
                 <ul>
-                    {countries.map((int,element) => {
+                    {countries.map((int, element) => {
                             return <li key={element}>{int}</li>
                         }
                     )}
@@ -90,6 +60,4 @@ function RenderComponent() {
     )
 }
 
-
-// export default App;
 export default RenderComponent;
