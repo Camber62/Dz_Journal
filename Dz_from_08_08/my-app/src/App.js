@@ -49,7 +49,7 @@ const RenderComponent = () => {
             <div className="result">
                 <ul>
                     {countries.map((int, element) => {
-                            return <li key={element}>{int}</li>
+                            return (<li key={element}>{int}</li>)
                         }
                     )}
                 </ul>
