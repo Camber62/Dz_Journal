@@ -3,10 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 
-const Arrs = ["Пицца", "Суши", "Пирожки"];
+
 
 const Arr = () => {
-
+    const [Arrs,useArrs] = useState (["Пицца", "Суши", "Пирожки"]);
 
     const inputRef = useRef(null);
 
