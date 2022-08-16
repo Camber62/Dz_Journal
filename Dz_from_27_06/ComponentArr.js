@@ -1,46 +1,40 @@
-import React, {useRef, useState} from 'react';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import "./styles.css";
+import React, { useRef, useState } from "react";
 
-
-
-
-const Arr = () => {
-    const [Arrs,useArrs] = useState (["Пицца", "Суши", "Пирожки"]);
-
+export default function Arr() {
     const inputRef = useRef(null);
-
+    const [Arrs, setArrs] = useState(["Пицца", "Суши", "Пирожки"]);
+    let NewArrs = [];
 
     function onClickDelete() {
-        Arrs.pop();
+
+        NewArrs = Arrs.filter((element, index) => index < Arrs.length - 1);
+        setArrs(NewArrs);
+
+
         console.log(Arrs);
     }
 
     function onClickAdd() {
-        Arrs.push(inputRef.current.value);
+        NewArrs = [...Arrs, inputRef.current.value];
+        setArrs(NewArrs);
+
         console.log(Arrs);
     }
 
-
-    const listItems = Arrs.map((number) =>
-        <li>{number}</li>
-    );
-
-
     return (
         <div className="App">
-            <input ref={inputRef} placeholder="Please, write" type="text"/>
+            <input ref={inputRef} placeholder="Please, write" type="text" />
             <button onClick={onClickDelete}>Delete</button>
             <button onClick={onClickAdd}>Add</button>
 
             <ul>
-                {listItems}
+                {Arrs.map((car,index) => {
+                    return <li key={index}>{car}</li>;
+                })}
             </ul>
 
             <h1>Задание 2.</h1>
         </div>
     );
-
-
 }
-export default Arr
