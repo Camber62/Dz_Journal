@@ -1,7 +1,6 @@
-import "./styles.css";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
-export default function Arr() {
+ const Arr=()=> {
     const [BtnName,setBtnName]=useState('Open')
     const [Text,setText]=useState('')
 
@@ -12,7 +11,7 @@ export default function Arr() {
     function onClick(){
         if(BtnName==='Open'){
             setBtnName('Hide')
-            setText('Hi')
+            setText(<h1>Задание 1</h1>)
         }
         else{setBtnName('Open')
             setText('')
@@ -30,7 +29,10 @@ export default function Arr() {
             <button onClick={onClick}>{BtnName}</button>
 
 
-            <h1>Задание .</h1>
         </div>
     );
 }
+
+
+
+export default Arr
