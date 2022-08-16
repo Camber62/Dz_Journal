@@ -1,7 +1,6 @@
-import "./styles.css";
 import React, { useRef, useState } from "react";
 
-export default function Arr() {
+const Arr=()=> {
     const inputRef = useRef(null);
     const [Arrs, setArrs] = useState(["Пицца", "Суши", "Пирожки"]);
     let NewArrs = [];
@@ -38,3 +37,7 @@ export default function Arr() {
         </div>
     );
 }
+
+
+
+export default Arr
