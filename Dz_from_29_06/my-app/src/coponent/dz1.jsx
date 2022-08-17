@@ -27,8 +27,6 @@ import React, { useState } from "react";
         <div className="App">
             <div>{Text}</div>
             <button onClick={onClick}>{BtnName}</button>
-
-
         </div>
     );
 }
