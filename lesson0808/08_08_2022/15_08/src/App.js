@@ -68,7 +68,7 @@ const App = () => {
     return (
         <div>
             <p>{arr}</p>
-            <AppButton chang={setNum} titel={'Click'}></AppButton>
+            <AppButton chang={setNum} titel={'Click'}/>
         </div>
     )
 
