@@ -1,0 +1,20 @@
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.blue{
+    background-color: blue;
+}
+.gray{
+    background-color: gray;
+}
+
+.all{
+    width: 300px;
+    height: 300px;
+}
+.flex{
+    display: flex;
+}
