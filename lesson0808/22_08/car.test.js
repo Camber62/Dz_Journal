@@ -91,11 +91,27 @@ beforeEach(()=>{
 // })
 
 
-describe('getCars',()=>{
+// describe('getCars',()=>{
+//
+//     test('Должен вернуть undefined если нет нужного id',()=>{
+//         expect(car.getCar(12)).toEqual(
+//                 undefined
+//         )
+//     })
+// })
 
-    test('Должен вернуть undefined если нет нужного id',()=>{
-        expect(car.getCar(12)).toEqual(
-                undefined
-        )
+describe('addCar',()=>{
+
+    test('Добавление в новой Машины',()=>{
+      const newId= car.addCar({
+            name:'Tesla',
+            color:'red',
+            year:2020,
+            price:1100,
+            currency:'RUB',
+        })
+        expect(newId).toEqual(3)
+        expect(car.getCar(newId)).toMatchSnapshot()
+
     })
 })

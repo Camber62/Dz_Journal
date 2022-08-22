@@ -14,32 +14,45 @@ getCars = () => {
     return cars
 }
 
-    getCar = (id) => {
-        for (let i = 0; i < cars.length; i++) {
-            if (cars[i].id === id) {
-                return cars[i]
-            } else {
-            }
+getCar = (id) => {
+    for (let i = 0; i < cars.length; i++) {
+        if (cars[i].id === id) {
+            return cars[i]
+        } else {
         }
     }
+}
 
 
 addCar = (newCar) => {
+    newCar.id=unitGenerId()
+    cars.push(newCar)
+    return newCar.id
+}
+
+
+unitGenerId=()=>{
+    let max=1
+    for(let i=0;i<cars.length;i++){
+        if(cars[i].id>max){
+            max=cars[i].id
+        }
+    }
+    return max+1
+}
+
+deleteCar = (id) => {
 
 }
 
-    deleteCar = (id) => {
+upDateCar = () => {
 
-    }
-
-    upDateCar = () => {
-
-    }
+}
 
 
-    resetCars = () => {
-        cars.length = 0
-    }
+resetCars = () => {
+    cars.length = 0
+}
 
 
 init = (initCars) => {
@@ -56,5 +69,6 @@ module.exports = {
     resetCars,
     car,
     init,
+    unitGenerId,
 
 }
