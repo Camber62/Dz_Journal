@@ -55,7 +55,6 @@ const RenderComponent = () => {
                 </ul>
             </div>
 
-            {/*<Array/>*/}
         </div>
     )
 }
