@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addCar Добавление в новой Машины 1`] = `
+Object {
+  "color": "red",
+  "currency": "RUB",
+  "id": 3,
+  "name": "Tesla",
+  "price": 1100,
+  "year": 2020,
+}
+`;
