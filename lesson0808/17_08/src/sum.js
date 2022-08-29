@@ -1,11 +1,11 @@
-// function sum(a, b) {
-//     return a - b;
-// }
-
-
-const car={
-
-    wheel:4
+function sum(a, b) {
+    return a - b;
 }
 
-module.exports = car;
+
+// const car={
+//
+//     wheel:4
+// }
+//
+module.exports = sum;
