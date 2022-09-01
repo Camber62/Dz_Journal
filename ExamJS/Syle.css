@@ -62,3 +62,57 @@ td {
     border: 1px red solid;
     background-color: red;
 }
+
+
+
+
+
+
+/*.App {*/
+/*    font-family: sans-serif;*/
+/*    text-align: center;*/
+/*}*/
+
+/*header {*/
+/*    height: 70px;*/
+/*    background-color: red;*/
+/*}*/
+/*footer {*/
+/*    height: 70px;*/
+/*    background-color: red;*/
+/*}*/
+
+/*th,*/
+/*tr,*/
+/*td {*/
+/*    border: 1px solid black;*/
+/*    text-align: center;*/
+/*}*/
+
+/*table {*/
+/*    border-collapse: collapse;*/
+/*    max-width: 510px;*/
+/*}*/
+/*button {*/
+/*    background: none;*/
+/*    border: none;*/
+/*}*/
+/*svg {*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*}*/
+/*img {*/
+/*    animation: spin .3s linear 0s ;*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*}*/
+/*@keyframes spin {*/
+/*    from {transform:rotate(0deg);}*/
+/*    to {transform:rotate(90deg);}*/
+/*}*/
+/*.table {*/
+/*    display: flex;*/
+/*}*/
+
+
+
