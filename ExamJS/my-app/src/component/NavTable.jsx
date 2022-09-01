@@ -1,10 +1,10 @@
-import Table from "./RenderTable";
+import Table from "./renderTable";
 
 const List = () => {
     return (
-        <arcticle>
+        <>
             <Table />
-        </arcticle>
+        </>
     );
 };
 

@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    background-color: #61dafb;
+}
+a{
+    text-decoration: none;
+}
+.logo {
+    margin-left: 50px;
+}
+
+.form{
+    display: flex;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+}
+.buttonAdd{
+    background:  none;
+    border: none;
+
+}
+
+.buttonImg {
+
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(90deg);}
+}
+
+

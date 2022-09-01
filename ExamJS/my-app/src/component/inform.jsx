@@ -1,5 +1,5 @@
 const Inform = () => {
-    return <arcticle>Inform</arcticle>;
+    return <>Inform</>;
 };
 
 export default Inform;

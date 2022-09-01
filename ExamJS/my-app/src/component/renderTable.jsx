@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {useRef, useState} from "react";
 import DeleteTable from "./deleteTable";
 
 export default function Table() {
@@ -8,6 +8,14 @@ export default function Table() {
     let [users, setUsers] = useState([]);
 
     const CklickAdd = (event) => {
+
+        let imgADd = event.target
+
+        function animationAdd() {
+            imgADd.style.animation = 'spin .3s linear 0s';
+        }
+
+
         if (
             inputValueName.current.value !== "" &&
             inputValueSurName.current.value !== "" && //провверка на пустоту
@@ -25,22 +33,21 @@ export default function Table() {
         } else {
             return;
         }
-    };
 
-    //  let imgADd = docu
-    // img.style.transform = "rotate(-90deg)";
+    };
 
     return (
         <div>
-            <div className="table" style={{ margin: "30px" }}>
-                <input placeholder="user" ref={inputValueName}></input>
-                <input placeholder="surname" ref={inputValueSurName}></input>
-                <input placeholder="age" ref={inputValueAge}></input>
-                <button onClick={CklickAdd} name="button">
-                    <img src="https://img.icons8.com/material-rounded/24/000000/plus-math--v1.png" />
+            <div className="form" style={{margin: "30px"}}>
+                <input placeholder="user" ref={inputValueName}/>
+                <input placeholder="surname" ref={inputValueSurName}/>
+                <input placeholder="age" ref={inputValueAge}/>
+                <button onClick={CklickAdd} name="button" className='buttonAdd'>
+                    <img className='buttonImg' alt='img'
+                         src="https://img.icons8.com/material-rounded/24/000000/plus-math--v1.png"/>
                 </button>
             </div>
-            <div style={{ margin: "30px" }}>
+            <div style={{margin: "30px"}}>
                 <table>
                     <tr>
                         <th>Name</th>
@@ -49,22 +56,10 @@ export default function Table() {
                         <th>Delete</th>
                     </tr>
                     <>
-                        <DeleteTable userName={users} userFunction={setUsers} />
+                        <DeleteTable userName={users} userFunction={setUsers}/>
                     </>
                 </table>
             </div>
         </div>
     );
 };
-
-// const unitGenerId = () => {
-//   let max = -1;
-//   for (let i = 0; i < users.length; i++) {
-//     //добавление id
-//     if (users[i].id > max) {
-//       max = users[i].id;
-//     }
-//   }
-
-//   return max + 1;
-// };
