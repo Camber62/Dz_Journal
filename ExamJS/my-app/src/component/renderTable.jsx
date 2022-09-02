@@ -11,10 +11,16 @@ export default function Table() {
 
         let imgADd = event.target
 
-        function animationAdd() {
-            imgADd.style.animation = 'spin .3s linear 0s';
-        }
+        function rotationImg() {
+            let rotation = 0
+            let rondom = Math.floor(Math.random() * (100 - 1)) + 1;
 
+            rotation +=rondom;
+            img.style.cssText = 'transform: rotate(' + rotation + 'deg);animation: 3s ;';
+
+            console.log(rotation)
+
+        }
 
         if (
             inputValueName.current.value !== "" &&
