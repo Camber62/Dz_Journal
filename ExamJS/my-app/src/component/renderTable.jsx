@@ -1,5 +1,6 @@
 import React, {useRef, useState} from "react";
 import DeleteTable from "./deleteTable";
+import Sort from "./SortTable";
 
 export default function Table() {
     const inputValueName = useRef(null);
@@ -13,10 +14,10 @@ export default function Table() {
 
         function rotationImg() {
             let rotation = 0
-            let rondom = Math.floor(Math.random() * (100 - 1)) + 1;
+            let rondom = Math.floor(Math.random() * (100 - 1)) + 1;                       //анимация при добвлоение
 
-            rotation +=rondom;
-            img.style.cssText = 'transform: rotate(' + rotation + 'deg);animation: 3s ;';
+            rotation += rondom;
+            imgADd.style.cssText = 'transform: rotate(' + rotation + 'deg);animation: 3s ;';
 
             console.log(rotation)
 
@@ -36,15 +37,15 @@ export default function Table() {
                     }
                 ])
             );
+            rotationImg()
         } else {
             return;
         }
 
     };
-
     return (
-        <div>
-            <div className="form" style={{margin: "30px"}}>
+        <div className='container'>
+            <div className="form">
                 <input placeholder="user" ref={inputValueName}/>
                 <input placeholder="surname" ref={inputValueSurName}/>
                 <input placeholder="age" ref={inputValueAge}/>
@@ -53,12 +54,21 @@ export default function Table() {
                          src="https://img.icons8.com/material-rounded/24/000000/plus-math--v1.png"/>
                 </button>
             </div>
-            <div style={{margin: "30px"}}>
+            <div>
                 <table>
                     <tr>
-                        <th>Name</th>
-                        <th>SurName</th>
-                        <th>Age</th>
+                        <th onClick={() => {
+                            Sort(users,setUsers,'name')
+                        }}>Name
+                        </th>
+                        <th onClick={() => {
+                            Sort(users,setUsers,'sername')
+                        }}>SurName
+                        </th>
+                        <th onClick={() => {
+                            Sort(users,setUsers,'age')
+                        }}>Age
+                        </th>
                         <th>Delete</th>
                     </tr>
                     <>

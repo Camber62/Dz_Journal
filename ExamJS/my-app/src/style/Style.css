@@ -29,15 +29,46 @@ a{
 .buttonAdd{
     background:  none;
     border: none;
-
+}
+.buttonDel{
+    background-image: url("../../src/icons/icons8-мусор.svg");
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    border: none;
 }
 
-.buttonImg {
-
-}
 @keyframes spin {
     from {transform:rotate(0deg);}
     to {transform:rotate(90deg);}
 }
 
+input{
+    border: none;
+    border-radius: 15px;
+}
+
+
+.container{
+    margin: 50px;
+}
+
+
+
+table{
+    width: 512px;
+    border-spacing: 0px;
+    border-collapse: collapse;
+
+}
+th{
+    background: bisque;
+}
+td{
+    border: 1px solid black;
+
+}
+tr{
+    text-align: center;
+}
 
