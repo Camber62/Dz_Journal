@@ -45,9 +45,11 @@ table {
 
 }
 
-tr {
-    width: 300px;
-
+/*tr {*/
+/*    width: 300px;*/
+/*}*/
+tr:nth-child(2n){
+background-color: #61dafb;
 }
 
 td {
@@ -55,17 +57,15 @@ td {
     text-align: center;
     padding: 30px;
 }
-.th{
+
+.th {
     background-color: #61dafb;
 }
-.Delete{
+
+.Delete {
     border: 1px red solid;
     background-color: red;
 }
-
-
-
-
 
 
 /*.App {*/

@@ -20,7 +20,8 @@ export default function Table() {
             rotation += rondom;
             imgADd.style.cssText = 'transform: rotate(' + rotation + 'deg);animation: 3s ;';
 
-            console.log(rotation)
+            // console.log(rotation)
+            console.log(users)
 
         }
 
@@ -42,44 +43,46 @@ export default function Table() {
         } else {
             return;
         }
-
     };
     return (
         <div className='container'>
+
+            <div className="fromTable">
+                <div className="form">
+                    <input placeholder="user" ref={inputValueName}/>
+                    <input placeholder="surname" ref={inputValueSurName}/>
+                    <input placeholder="age" ref={inputValueAge}/>
+                    <button onClick={CklickAdd} name="button" className='buttonAdd'>
+                        <img className='buttonImg' alt='img'
+                             src="https://img.icons8.com/material-rounded/24/000000/plus-math--v1.png"/>
+                    </button>
+                </div>
+                <div className={users.length===0 ? 'classSearchTable' : ''}>
+                    <table>
+                        <tr>
+                            <th onClick={() => {
+                                Sort(users, setUsers, 'name')
+                            }}>Name
+                            </th>
+                            <th onClick={() => {
+                                Sort(users, setUsers, 'sername')
+                            }}>SurName
+                            </th>
+                            <th onClick={() => {
+                                Sort(users, setUsers, 'age')
+                            }}>Age
+                            </th>
+                            <th>Delete</th>
+                        </tr>
+                        <>
+                            <DeleteTable userName={users} userFunction={setUsers}/>
+                        </>
+                    </table>
+                </div>
+            </div>
             <>
                 <Search userName={users} userFunction={setUsers}/>
             </>
-            <div className="form">
-                <input placeholder="user" ref={inputValueName}/>
-                <input placeholder="surname" ref={inputValueSurName}/>
-                <input placeholder="age" ref={inputValueAge}/>
-                <button onClick={CklickAdd} name="button" className='buttonAdd'>
-                    <img className='buttonImg' alt='img'
-                         src="https://img.icons8.com/material-rounded/24/000000/plus-math--v1.png"/>
-                </button>
-            </div>
-            <div>
-                <table>
-                    <tr>
-                        <th onClick={() => {
-                            Sort(users,setUsers,'name')
-                        }}>Name
-                        </th>
-                        <th onClick={() => {
-                            Sort(users,setUsers,'sername')
-                        }}>SurName
-                        </th>
-                        <th onClick={() => {
-                            Sort(users,setUsers,'age')
-                        }}>Age
-                        </th>
-                        <th>Delete</th>
-                    </tr>
-                    <>
-                        <DeleteTable userName={users} userFunction={setUsers}/>
-                    </>
-                </table>
-            </div>
         </div>
     );
 };

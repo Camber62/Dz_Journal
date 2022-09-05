@@ -44,13 +44,20 @@ a{
 }
 
 input{
-    border: none;
+    border: 1px solid #4ab0b0;
     border-radius: 15px;
+    height: 30px;
 }
 
 
 .container{
+    display: flex;
+    width: fit-content;
     margin: 50px;
+    background: #74e0f9;
+    min-height: 300px;
+    border-radius:15px;
+    box-shadow: -3px 3px 5px 0px;
 }
 
 
@@ -59,17 +66,33 @@ table{
     width: 512px;
     border-spacing: 0px;
     border-collapse: collapse;
+    margin: 0 5px 0 5px;
 
 }
 th{
     background: bisque;
 }
 td{
-    border: 1px solid black;
+    border: none;
+    margin: 0 5px 0 5px;
 
 }
 tr{
     text-align: center;
+    border-radius: 15px;
+}
+tr:nth-child(2n){
+    background: #dadde3;
 }
 
-.classSearch{display: none;}
+.classSearchTable{display: none;}
+
+
+.serchContainer{
+    margin-top: 10px;
+}
+.inputSearch{
+}
+
+.form{    margin-top: 10px;
+}

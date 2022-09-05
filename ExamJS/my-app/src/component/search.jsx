@@ -7,20 +7,21 @@ const Search = (props) => {
     const [value, setValue] = useState("");
 
     const filterSearch = users.filter((int) => {
-        return int.name.toLowerCase().includes(value.toLowerCase());
+        return int.name.toLowerCase().includes(value.toLowerCase()) || int.sername.toLowerCase().includes(value.toLowerCase()) || int.age.toLowerCase().includes(value.toLowerCase());
     });
 
 
 
     return (
-        <>
+        <div className='serchContainer'>
             <input
                 type="text"
                 onChange={(event) => setValue(event.target.value)}
                 placeholder="search"
                 ref={inputValueSearch}
+                className='inputSearch'
             />
-            <table className={value ? '' : 'classSearch'}>
+            <table className={value ? '' : 'classSearchTable'}>
                 {filterSearch.map((int, element) => {
                     return (
                         <tr key={element}>
@@ -31,7 +32,7 @@ const Search = (props) => {
                     );
                 })}
             </table>
-        </>
+        </div>
     );
 };
 
