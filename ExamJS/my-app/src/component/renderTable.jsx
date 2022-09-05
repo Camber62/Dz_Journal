@@ -1,6 +1,7 @@
 import React, {useRef, useState} from "react";
 import DeleteTable from "./deleteTable";
 import Sort from "./SortTable";
+import Search from "./search";
 
 export default function Table() {
     const inputValueName = useRef(null);
@@ -45,6 +46,9 @@ export default function Table() {
     };
     return (
         <div className='container'>
+            <>
+                <Search userName={users} userFunction={setUsers}/>
+            </>
             <div className="form">
                 <input placeholder="user" ref={inputValueName}/>
                 <input placeholder="surname" ref={inputValueSurName}/>
