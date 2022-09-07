@@ -78,7 +78,7 @@ export default function Table() {
                             }}>Age <span className='sortUpSvg'><SvgUp/></span>
 
                             </th>
-                            <th>Delete</th>
+                            <th>Delete/Edit</th>
                         </tr>
                         <>
                             <DeleteTable userName={users} userFunction={setUsers}/>

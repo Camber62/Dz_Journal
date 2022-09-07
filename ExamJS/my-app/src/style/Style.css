@@ -10,14 +10,16 @@ header {
     height: 50px;
     background-color: #61dafb;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 .logo {
     margin-left: 50px;
 }
 
-.form{
+.form {
     display: flex;
 }
 
@@ -26,17 +28,21 @@ a{
     justify-content: space-around;
     width: 500px;
 }
-.buttonAdd{
-    background:  none;
+
+.buttonAdd {
+    background: none;
     border: none;
 }
-.buttonDel{
+
+.buttonDel {
     background-image: url("../../src/icons/icons8-мусор.svg");
     width: 20px;
     height: 20px;
     background-size: cover;
     border: none;
-}.buttonEdit{
+}
+
+.buttonEdit {
     background-image: url("../../src/icons/101edit_99874.svg");
     width: 20px;
     height: 20px;
@@ -45,65 +51,102 @@ a{
 }
 
 @keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(90deg);}
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
 }
 
-input{
+input {
     border: 1px solid #4ab0b0;
     border-radius: 15px;
     height: 30px;
 }
 
 
-.container{
+.container {
     display: flex;
     width: fit-content;
     margin: 50px;
     background: #74e0f9;
     min-height: 300px;
-    border-radius:15px;
+    border-radius: 15px;
     box-shadow: -3px 3px 5px 0px;
 }
 
 
-
-table{
+table {
     width: 512px;
     border-spacing: 0px;
     border-collapse: collapse;
     margin: 0 5px 0 5px;
 
 }
-th{
+
+th {
     background: bisque;
 }
-td{
+
+td {
     border: none;
     margin: 0 5px 0 5px;
 
 }
-tr{
+
+tr {
     text-align: center;
     border-radius: 15px;
 }
-tr:nth-child(2n){
+
+tr:nth-child(2n) {
     background: #dadde3;
 }
 
-.classSearchTable{display: none;}
+.classSearchTable {
+    display: none;
+}
 
 
-.serchContainer{
+.serchContainer {
     margin-top: 10px;
 }
-.inputSearch{
+
+.inputSearch {
 }
 
-.form{    margin-top: 10px;
+.form {
+    margin-top: 10px;
 }
 
 
-.sortUpSvg{
+.sortUpSvg {
     display: none;
+}
+
+
+/*Modal*/
+
+
+.modal {overflow:hidden;
+    display: none;
+    position: fixed;
+    top: 209px;
+    bottom: 0;
+    left: 200px;
+    right: 0;
+    width: 60%;
+    z-index: 9999;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    animation-name: appear;
+    animation-duration: 300ms;
+}
+.modalForm{
+    box-sizing:border-box;
+    width:auto;
+    max-width:100%;
 }

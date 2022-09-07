@@ -1,3 +1,7 @@
+import React, {useRef, useState} from "react";
+import ClickEdit from './modal'
+
+
 const ComponentTdName = (props) => {
     const UseFunc = props.userFunction;
     const UseName = props.userName;
@@ -11,6 +15,12 @@ const ComponentTdName = (props) => {
         });
         UseFunc(newUseName);
     };
+
+
+
+
+
+
 
     return (
         <>
@@ -28,9 +38,10 @@ const ComponentTdName = (props) => {
                             </button>
                             <button className='buttonEdit'
                                     id={element}
-                                    // onClick={clickDelete}
+                                    // onClick={clickEdit}
                             >
                             </button>
+                            <><ClickEdit /></>
                         </td>
                     </tr>
                 );
