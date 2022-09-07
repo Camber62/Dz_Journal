@@ -1,5 +1,4 @@
 import React from "react";
-import SortUp from '../icons/SortUp.svg';
 
 
 const SvgUp = () => {

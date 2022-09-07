@@ -59,20 +59,24 @@ export default function Table() {
                              src="https://img.icons8.com/material-rounded/24/000000/plus-math--v1.png"/>
                     </button>
                 </div>
-                <div className={users.length===0 ? 'classSearchTable' : ''}>
+                <div className={users.length === 0 ? 'classSearchTable' : ''}>
                     <table>
                         <tr>
                             <th onClick={(e) => {
-                                Sort(users, setUsers, 'name',e)
-                            }}>Name<SvgUp/>
+                                Sort(users, setUsers, 'name', e)
+                            }}>Name
+                                <span className='sortUpSvg'><SvgUp/></span>
+
                             </th>
                             <th onClick={(e) => {
-                                Sort(users, setUsers, 'sername',e)
-                            }}>SurName
+                                Sort(users, setUsers, 'sername', e)
+                            }}>SurName <span className='sortUpSvg'><SvgUp/></span>
+
                             </th>
                             <th onClick={(e) => {
-                                Sort(users, setUsers, 'age',e)
-                            }}>Age
+                                Sort(users, setUsers, 'age', e)
+                            }}>Age <span className='sortUpSvg'><SvgUp/></span>
+
                             </th>
                             <th>Delete</th>
                         </tr>

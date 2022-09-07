@@ -21,11 +21,17 @@ const ComponentTdName = (props) => {
                         <td>{int.sername}</td>
                         <td>{int.age}</td>
                         <td>
-                        <button className='buttonDel'
-                            id={element}
-                            onClick={clickDelete}
-                        >
-                        </button></td>
+                            <button className='buttonDel'
+                                    id={element}
+                                    onClick={clickDelete}
+                            >
+                            </button>
+                            <button className='buttonEdit'
+                                    id={element}
+                                    // onClick={clickDelete}
+                            >
+                            </button>
+                        </td>
                     </tr>
                 );
             })}

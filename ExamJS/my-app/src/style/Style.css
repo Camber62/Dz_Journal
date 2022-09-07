@@ -36,6 +36,12 @@ a{
     height: 20px;
     background-size: cover;
     border: none;
+}.buttonEdit{
+    background-image: url("../../src/icons/101edit_99874.svg");
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    border: none;
 }
 
 @keyframes spin {
@@ -95,4 +101,9 @@ tr:nth-child(2n){
 }
 
 .form{    margin-top: 10px;
+}
+
+
+.sortUpSvg{
+    display: none;
 }
