@@ -128,9 +128,10 @@ tr:nth-child(2n) {
 
 /*Modal*/
 
-
-.modal {overflow:hidden;
-    display: none;
+.none{display: none}
+.modal {
+    overflow: hidden;
+    display: flex;
     position: fixed;
     top: 209px;
     bottom: 0;
@@ -141,12 +142,13 @@ tr:nth-child(2n) {
     /*display: flex;*/
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(225, 223, 223, 0.25);
     animation-name: appear;
     animation-duration: 300ms;
 }
-.modalForm{
-    box-sizing:border-box;
-    width:auto;
-    max-width:100%;
+
+.modalForm {
+    box-sizing: border-box;
+    width: auto;
+    max-width: 100%;
 }

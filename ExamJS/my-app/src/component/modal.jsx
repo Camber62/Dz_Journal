@@ -1,20 +1,25 @@
 import React, {useRef, useState} from "react";
 
-const ClickEdit=()=>{
-    const [isModal, setModal] = React.useState(false);
+const EditModal = (props) => {
+    const modal=props.ModalEdit
+    const SetModalEdit=props.SetModalEdit
+
+    const EditClosedModal = () => {
+        SetModalEdit(false)
+    }
 
 
-
-
-
-    return(
-        <div className='modal'>
+    console.log()
+    return (
+        <div className={modal ? ' modal' : 'none'}>
             <div className="modalForm"><input type="text"/>
                 <input type="text"/>
-                <input type="text"/></div>
+                <input type="text"/>
+                <button onClick={EditClosedModal} >Edit</button>
+            </div>
         </div>
     )
 }
 
 
-export default ClickEdit
+export default EditModal

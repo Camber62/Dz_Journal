@@ -1,8 +1,10 @@
 import React, {useRef, useState} from "react";
-import ClickEdit from './modal'
+import EditModal from './modal'
 
 
 const ComponentTdName = (props) => {
+    const [isModal, setModal] = useState(false);
+
     const UseFunc = props.userFunction;
     const UseName = props.userName;
 
@@ -16,14 +18,14 @@ const ComponentTdName = (props) => {
         UseFunc(newUseName);
     };
 
-
-
-
-
+    const ClickEdit = () => {
+        setModal(true)
+    }
 
 
     return (
         <>
+            <div><EditModal ModalEdit={isModal} SetModalEdit={setModal}/></div>
             {UseName.map((int, element) => {
                 return (
                     <tr key={element}>
@@ -38,10 +40,10 @@ const ComponentTdName = (props) => {
                             </button>
                             <button className='buttonEdit'
                                     id={element}
-                                    // onClick={clickEdit}
+                                    onClick={ClickEdit}
                             >
                             </button>
-                            <><ClickEdit /></>
+
                         </td>
                     </tr>
                 );
