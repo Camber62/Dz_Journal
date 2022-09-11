@@ -4,6 +4,7 @@ import EditModal from './modal'
 
 const ComponentTdName = (props) => {
     const [isModal, setModal] = useState(false);
+    const [editUser, setEditUser] = useState();
 
     const UseFunc = props.userFunction;
     const UseName = props.userName;
@@ -18,14 +19,30 @@ const ComponentTdName = (props) => {
         UseFunc(newUseName);
     };
 
-    const ClickEdit = () => {
+    const ClickEdit = (e) => {
         setModal(true)
+
+
+        setEditUser(e.target.id)
+
     }
 
 
     return (
         <>
-            <div><EditModal ModalEdit={isModal} SetModalEdit={setModal}/></div>
+            <div>
+                <EditModal
+                ModalEdit={isModal}
+                SetModalEdit={setModal}
+                editUser={editUser}
+                setEditUser={setEditUser}
+                UseFunc={UseFunc}
+                UseName={UseName}
+
+
+
+            />
+            </div>
             {UseName.map((int, element) => {
                 return (
                     <tr key={element}>

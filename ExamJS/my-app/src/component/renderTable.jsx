@@ -1,5 +1,5 @@
 import React, {useRef, useState} from "react";
-import DeleteTable from "./deleteTable";
+import DeleteTable from "./delete_edit_Table";
 import Sort from "./SortTable";
 import Search from "./search";
 import SvgUp from './svgUp';
