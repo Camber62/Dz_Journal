@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, {useRef, useState} from "react";
+import {CSSTransition} from "react-transition-group";
 
 const Search = (props) => {
     const inputValueSearch = useRef(null);
     let users = props.userName;
-    const showSearch=props.showSearch
+    const showSearch = props.showSearch
 
     const [value, setValue] = useState("");
 
@@ -12,28 +13,36 @@ const Search = (props) => {
     });
 
 
-
     return (
-        <div className={showSearch ? 'serchContainer' : ''}>
-            <input
-                type="text"
-                onChange={(event) => setValue(event.target.value)}
-                placeholder="search"
-                ref={inputValueSearch}
-                className='inputSearch'
-            />
-            <table className={value ? '' : 'classSearchTable'}>
-                {filterSearch.map((int, element) => {
-                    return (
-                        <tr key={element}>
-                            <td>{int.name}</td>
-                            <td>{int.sername}</td>
-                            <td>{int.age}</td>
-                        </tr>
-                    );
-                })}
-            </table>
-        </div>
+
+            <CSSTransition
+                in={showSearch}
+                timeout={300}
+                classNames="alert"
+                unmountOnExit
+            >
+                <div className='serchContainer'>
+
+                    <input
+                        type="text"
+                        onChange={(event) => setValue(event.target.value)}
+                        placeholder="search"
+                        ref={inputValueSearch}
+                        className='inputSearch'
+                    />
+                    <table className={value ? '' : 'classSearchTable'}>
+                        {filterSearch.map((int, element) => {
+                            return (
+                                <tr key={element}>
+                                    <td>{int.name}</td>
+                                    <td>{int.sername}</td>
+                                    <td>{int.age}</td>
+                                </tr>
+                            );
+                        })}
+                    </table>
+                </div>
+            </CSSTransition>
     );
 };
 

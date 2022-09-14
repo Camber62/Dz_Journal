@@ -111,23 +111,31 @@ tr:nth-child(2n) {
 
 .serchContainer {
     margin-top: 10px;
-    background-color: #6e92d9;
+    background: #74e0f9;
     /*transform: translate(50px,0)*/
-    transition: all 5s linear
+    /*transition: all 5s linear*/
 }
 
-/*@keyframes searcAnimation{*/
-/*    0% {*/
-/*        opacity: 1;*/
-/*    }*/
+.alert-enter {
+    opacity: 0;
+    transform: scale(0.9);
+}
+.alert-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 700ms, transform 700ms;
+}
+.alert-exit {
+    opacity: 1;
+}
+.alert-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+}
 
-/*    100% {*/
-/*        opacity: 1;*/
-/*    }*/
-/*    100% {*/
-/*        opacity: 1;*/
-/*    }*/
-/*}*/
+
+
 
 
 .inputSearch {

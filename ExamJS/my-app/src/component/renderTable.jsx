@@ -10,7 +10,7 @@ export default function Table() {
     const inputValueSurName = useRef(null);
     const inputValueAge = useRef(null);
     let [users, setUsers] = useState([]);
-    const [showSearch, setShowSearch] = useState(true);
+    const [showSearch, setShowSearch] = useState(false);
 
     const CklickAdd = (event) => {
 
@@ -90,7 +90,7 @@ export default function Table() {
                 </div>
             </div>
             <>
-                <svg onClick={() => setShowSearch(!showSearch)} style={ showSearch ? { opacity: 1 } : { opacity: 0 } } xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+                <svg onClick={() => setShowSearch(!showSearch)} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
                      width="38px" height="58px">
                     <path fill="#616161" d="M34.6 28.1H38.6V45.1H34.6z" transform="rotate(-45.001 36.586 36.587)"/>
                     <path fill="#616161" d="M20 4A16 16 0 1 0 20 36A16 16 0 1 0 20 4Z"/>
@@ -100,8 +100,8 @@ export default function Table() {
                     <path fill="#BBDEFB"
                           d="M26.9,14.2c-1.7-2-4.2-3.2-6.9-3.2s-5.2,1.2-6.9,3.2c-0.4,0.4-0.3,1.1,0.1,1.4c0.4,0.4,1.1,0.3,1.4-0.1C16,13.9,17.9,13,20,13s4,0.9,5.4,2.5c0.2,0.2,0.5,0.4,0.8,0.4c0.2,0,0.5-0.1,0.6-0.2C27.2,15.3,27.2,14.6,26.9,14.2z"/>
                 </svg>
-                {showSearch ? <Search showSearch={showSearch} userName={users} userFunction={setUsers}/> : null}
-
+                {/*{showSearch ? <Search showSearch={showSearch} userName={users} userFunction={setUsers}/> : null}*/}
+                <Search showSearch={showSearch} userName={users} userFunction={setUsers}/>
             </>
         </div>
     );
