@@ -111,7 +111,24 @@ tr:nth-child(2n) {
 
 .serchContainer {
     margin-top: 10px;
+    background-color: #6e92d9;
+    /*transform: translate(50px,0)*/
+    transition: all 5s linear
 }
+
+/*@keyframes searcAnimation{*/
+/*    0% {*/
+/*        opacity: 1;*/
+/*    }*/
+
+/*    100% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*    100% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*}*/
+
 
 .inputSearch {
 }
@@ -128,7 +145,10 @@ tr:nth-child(2n) {
 
 /*Modal*/
 
-.none{display: none}
+.none {
+    display: none
+}
+
 .modal {
     overflow: hidden;
     display: flex;

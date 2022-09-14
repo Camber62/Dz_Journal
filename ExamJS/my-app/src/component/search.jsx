@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 const Search = (props) => {
     const inputValueSearch = useRef(null);
     let users = props.userName;
+    const showSearch=props.showSearch
 
     const [value, setValue] = useState("");
 
@@ -13,7 +14,7 @@ const Search = (props) => {
 
 
     return (
-        <div className='serchContainer'>
+        <div className={showSearch ? 'serchContainer' : ''}>
             <input
                 type="text"
                 onChange={(event) => setValue(event.target.value)}
