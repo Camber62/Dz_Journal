@@ -5,12 +5,13 @@ import Search from "./search";
 import SvgUp from './svgUp';
 
 
-export default function Table() {
+function Table(props) {
     const inputValueName = useRef(null);
     const inputValueSurName = useRef(null);
     const inputValueAge = useRef(null);
     let [users, setUsers] = useState([]);
     const [showSearch, setShowSearch] = useState(false);
+
 
     const CklickAdd = (event) => {
 
@@ -24,7 +25,7 @@ export default function Table() {
             imgADd.style.cssText = 'transform: rotate(' + rotation + 'deg);animation: 3s ;';
 
             // console.log(rotation)
-            console.log(users)
+            // console.log(users)
 
         }
 
@@ -47,7 +48,12 @@ export default function Table() {
             return;
         }
     };
+
+    props.setPropsUsers(users)
+
     return (
+
+
         <div className='container'>
 
             <div className="fromTable">
@@ -106,3 +112,8 @@ export default function Table() {
         </div>
     );
 };
+
+
+
+
+export default Table;

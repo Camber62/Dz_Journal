@@ -1,24 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Route, Routes, Link} from "react-router-dom";
 import Home from "../src/component/home";
-import List from "../src/component/NavTable";
-import Inform from "../src/component/inform";
+import Favorite from "./component/Favorite";
+import Table from "./component/renderTable";
 
-const Main = () => {
+const Main = (props) => {
+
+    let [propsUsers,setPropsUsers]=useState()
+
+
+
+
     return (
         <>
             <header>
                 <div className='logo'>Logo</div>
                 <div className='nav'>
                     <Link to="/">Home</Link>
-                    <Link to="/List">List</Link>
-                    <Link to="/Inform">Inform</Link>
+                    <Link to="/Table">Table</Link>
+                    <Link to="/Favorite">Favorite</Link>
                 </div>
             </header>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/List" element={<List/>}/>
-                <Route path="/inform" element={<Inform/>}/>
+                <Route path="/Table" element={<Table  setPropsUsers={setPropsUsers}/>}/>
+                <Route path="/Favorite" element={<Favorite propsUsers={propsUsers} />}/>
             </Routes>
             <footer>Footer</footer>
         </>
