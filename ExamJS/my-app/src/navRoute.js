@@ -11,19 +11,20 @@ const Main = (props) => {
 
     return (
         <>
-            <header>
-                <div className='logo'>Logo</div>
-                <div className='nav'>
-                    <Link to="/">Home</Link>
-                    <Link to="/Table">Table</Link>
-                    <Link to="/Favorite">Favorite</Link>
-                </div>
-            </header>
-            <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/Table" element={<Table setPropsUsers={setPropsUsers}/>}/>
-                <Route path="/Favorite" element={<Favorite propsUsers={propsUsers}/>}/>
-            </Routes>
+            <div className="main">
+                <header>
+                    <div className='logo'>Logo</div>
+                    <div className='nav'>
+                        <Link to="/">Home</Link>
+                        <Link to="/Table">Table</Link>
+                        <Link to="/Favorite">Favorite</Link>
+                    </div>
+                </header>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/Table" element={<Table setPropsUsers={setPropsUsers}/>}/>
+                    <Route path="/Favorite" element={<Favorite propsUsers={propsUsers}/>}/>
+                </Routes></div>
             <footer>Footer</footer>
         </>
     );

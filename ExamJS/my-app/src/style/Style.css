@@ -2,6 +2,8 @@ body {
     margin: 0;
     padding: 0;
 }
+.main{
+    min-height: calc(100vh - 30px - 18px)}
 
 header {
     display: flex;
@@ -120,22 +122,22 @@ tr:nth-child(2n) {
     opacity: 0;
     transform: scale(0.9);
 }
+
 .alert-enter-active {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 700ms, transform 700ms;
 }
+
 .alert-exit {
     opacity: 1;
 }
+
 .alert-exit-active {
     opacity: 0;
     transform: scale(0.9);
     transition: opacity 300ms, transform 300ms;
 }
-
-
-
 
 
 .inputSearch {
@@ -179,4 +181,17 @@ tr:nth-child(2n) {
     box-sizing: border-box;
     width: auto;
     max-width: 100%;
+}
+
+
+/*Favorite*/
+
+
+.containerFavorite {
+    display: table;
+    margin: 30px 0 0 30px;
+    width: 300px;
+    height: 300px;
+    box-shadow: -3px 3px 5px 0px;
+
 }

@@ -10,17 +10,20 @@ const Favorite = (props) => {
 
 
     return (
-        <>
+        <div className='containerFavorite'>
+            <th>Name</th>
+            <th>Sername</th>
+            <th>Age</th>
             {copuUser.map((int, element) => {
                 return (
                     <tr key={element}>
-                        <td>{int.name}</td>
+                        <td style={{color : 'red'}}>{int.name}</td>
                         <td>{int.sername}</td>
                         <td>{int.age}</td>
                     </tr>
                 );
             })}
-        </>
+        </div>
 
     );
 };
