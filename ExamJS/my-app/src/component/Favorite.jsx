@@ -1,4 +1,4 @@
-import React from "@types/react";
+import React, {useState} from 'react';
 
 const Favorite = (props) => {
 
@@ -11,15 +11,15 @@ const Favorite = (props) => {
 
     return (
         <>
-            {/*{copuUser.map((int, element) => {*/}
-            {/*    return (*/}
-            {/*        <tr key={element}>*/}
-            {/*            <td>{int.name}</td>*/}
-            {/*            <td>{int.sername}</td>*/}
-            {/*            <td>{int.age}</td>*/}
-            {/*        </tr>*/}
-            {/*    );*/}
-            {/*})}*/}
+            {copuUser.map((int, element) => {
+                return (
+                    <tr key={element}>
+                        <td>{int.name}</td>
+                        <td>{int.sername}</td>
+                        <td>{int.age}</td>
+                    </tr>
+                );
+            })}
         </>
 
     );

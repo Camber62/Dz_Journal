@@ -6,9 +6,7 @@ import Table from "./component/renderTable";
 
 const Main = (props) => {
 
-    let [propsUsers,setPropsUsers]=useState()
-
-
+    let [propsUsers, setPropsUsers] = useState()
 
 
     return (
@@ -23,8 +21,8 @@ const Main = (props) => {
             </header>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/Table" element={<Table  setPropsUsers={setPropsUsers}/>}/>
-                <Route path="/Favorite" element={<Favorite propsUsers={propsUsers} />}/>
+                <Route path="/Table" element={<Table setPropsUsers={setPropsUsers}/>}/>
+                <Route path="/Favorite" element={<Favorite propsUsers={propsUsers}/>}/>
             </Routes>
             <footer>Footer</footer>
         </>
