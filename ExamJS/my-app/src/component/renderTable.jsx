@@ -68,7 +68,7 @@ function Table(props) {
                     <input placeholder="user" ref={inputValueName}/>
                     <input placeholder="surname" ref={inputValueSurName}/>
                     <input placeholder="age" ref={inputValueAge}/>
-                    <input placeholder="rating" ref={inputValueRating}/>
+                    <input placeholder="rating min 0 max 10" ref={inputValueRating}/>
                     <button onClick={CklickAdd} name="button" className='buttonAdd'>
                         <img className='but]tonImg' alt='img'
                              src="https://img.icons8.com/material-rounded/24/000000/plus-math--v1.png"/>
