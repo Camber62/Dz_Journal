@@ -31,12 +31,17 @@ const Search = (props) => {
                         className='inputSearch'
                     />
                     <table className={value ? '' : 'classSearchTable'}>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Age</th>
+                        <th>Rating</th>
                         {filterSearch.map((int, element) => {
                             return (
                                 <tr key={element}>
                                     <td>{int.name}</td>
                                     <td>{int.sername}</td>
                                     <td>{int.age}</td>
+                                    <td>{int.rating}</td>
                                 </tr>
                             );
                         })}

@@ -49,6 +49,7 @@ const ComponentTdName = (props) => {
                         <td>{int.name}</td>
                         <td>{int.sername}</td>
                         <td>{int.age}</td>
+                        <td>{int.rating}</td>
                         <td>
                             <button className='buttonDel'
                                     id={element}

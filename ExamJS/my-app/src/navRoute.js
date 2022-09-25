@@ -3,6 +3,8 @@ import {Route, Routes, Link} from "react-router-dom";
 import Home from "../src/component/home";
 import Favorite from "./component/Favorite";
 import Table from "./component/renderTable";
+import { StrictMode } from "react";
+
 
 const Main = (props) => {
 

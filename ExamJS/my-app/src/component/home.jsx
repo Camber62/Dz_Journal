@@ -1,45 +1,56 @@
+import React, { useState, useEffect } from "react";
+import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
+import "react-awesome-slider/dist/styles.css";
+import * as axios from "axios";
+
+
+
+
+const baseUrl = "https://reqres.in/api/users?page=2";
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Home = () => {
-    return (
-        <div>
-            <p>Home</p>
-        </div>
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        axios.get(baseUrl).then((responce) => {
+            setUsers(responce.data.data);
+        });
+    }, []);
+
+
+    if(users.length!==0){
+        click()
+    }
+
+
+
+    return (<>
+        <h1>Users</h1>
+
+        <AutoplaySlider
+            play={true}
+            cancelOnInteraction={false} // should stop playing on user interaction
+            interval={3500}
+        >
+            {users.map((int, element) => {
+                return (
+                    <div className="img" key={element}
+                         // style={{backgroundImage:"url(" +  int.avatar  + ")" , backgroundSize: "cover"}}
+                    >
+                        <img className='imgUsers' alt="qwe" src={int.avatar} />
+                    </div>
+                );
+            })}
+        </AutoplaySlider></>
     );
 };
 
+
+
+    function click() {
+        document.querySelector('.awssld__next').click();
+    }
+
+
+
 export default Home;
-// import ImageGallery from "react-image-gallery";
-// import React, { useState, useEffect, Component } from "react";
-// import * as axios from "axios";
-// import "./styles.css";
-//
-// import ReactDOM from "react-dom";
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from "react-responsive-carousel";
-//
-// const baseUrl = "https://reqres.in/api/users?page=1";
-//
-// const App = () => {
-//     let [users, setUsers] = useState([]);
-//     useEffect(() => {
-//         axios.get(baseUrl).then((responce) => {
-//             setUsers(responce.data.data);
-//         });
-//     }, []);
-//
-//     return (
-//         <>
-//             <Carousel>
-//                 {users.map((int, element) => {
-//                     return (
-//                         <div className="img" key={element}>
-//                             <img alt="qwe" src={int.avatar} />
-//                         </div>
-//                     );
-//                 })}
-//             </Carousel>
-//         </>
-//     );
-// };
-//
-// export default App;
-// ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel'));

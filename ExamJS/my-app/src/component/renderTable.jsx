@@ -9,6 +9,7 @@ function Table(props) {
     const inputValueName = useRef(null);
     const inputValueSurName = useRef(null);
     const inputValueAge = useRef(null);
+    const inputValueRating = useRef(null);
     let [users, setUsers] = useState([]);
     const [showSearch, setShowSearch] = useState(false);
 
@@ -32,14 +33,17 @@ function Table(props) {
         if (
             inputValueName.current.value !== "" &&
             inputValueSurName.current.value !== "" && //провверка на пустоту
-            inputValueAge.current.value !== ""
+            inputValueAge.current.value !== "" &&
+            inputValueRating.current.value!==''&&
+            inputValueRating.current.value <= 10
         ) {
             setUsers(
                 users.concat([
                     {
                         name: inputValueName.current.value,
                         sername: inputValueSurName.current.value, //добавление в список
-                        age: inputValueAge.current.value
+                        age: inputValueAge.current.value,
+                        rating:inputValueRating.current.value
                     }
                 ])
             );
@@ -61,6 +65,7 @@ function Table(props) {
                     <input placeholder="user" ref={inputValueName}/>
                     <input placeholder="surname" ref={inputValueSurName}/>
                     <input placeholder="age" ref={inputValueAge}/>
+                    <input placeholder="rating" ref={inputValueRating}/>
                     <button onClick={CklickAdd} name="button" className='buttonAdd'>
                         <img className='but]tonImg' alt='img'
                              src="https://img.icons8.com/material-rounded/24/000000/plus-math--v1.png"/>
@@ -75,7 +80,7 @@ function Table(props) {
                                 <span className='sortUpSvg'><SvgUp/></span>
 
                             </th>
-                            <th onClick={(e) => {
+                                <th onClick={(e) => {
                                 Sort(users, setUsers, 'sername', e)
                             }}>SurName <span className='sortUpSvg'><SvgUp/></span>
 
@@ -83,6 +88,11 @@ function Table(props) {
                             <th onClick={(e) => {
                                 Sort(users, setUsers, 'age', e)
                             }}>Age <span className='sortUpSvg'><SvgUp/></span>
+
+                            </th>
+                            <th onClick={(e) => {
+                                            Sort(users, setUsers, 'rating', e)
+                            }}>Rating <span className='sortUpSvg'><SvgUp/></span>
 
                             </th>
                             <th>Delete/Edit</th>
