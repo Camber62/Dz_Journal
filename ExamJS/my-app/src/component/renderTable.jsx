@@ -12,6 +12,7 @@ function Table(props) {
     const inputValueRating = useRef(null);
     let [users, setUsers] = useState([]);
     const [showSearch, setShowSearch] = useState(false);
+    const [Error, setError] = useState(false);
 
 
     const CklickAdd = (event) => {
@@ -34,7 +35,7 @@ function Table(props) {
             inputValueName.current.value !== "" &&
             inputValueSurName.current.value !== "" && //провверка на пустоту
             inputValueAge.current.value !== "" &&
-            inputValueRating.current.value!==''&&
+            inputValueRating.current.value!=="" &&
             inputValueRating.current.value <= 10
         ) {
             setUsers(
@@ -47,9 +48,10 @@ function Table(props) {
                     }
                 ])
             );
+            setError(false)
             rotationImg()
         } else {
-            return;
+            setError(true);
         }
     };
 
@@ -61,6 +63,7 @@ function Table(props) {
         <div className='container'>
 
             <div className="fromTable">
+                <p className={Error? 'error':'none'}>Incorrect data, please enter the correct data</p>
                 <div className="form">
                     <input placeholder="user" ref={inputValueName}/>
                     <input placeholder="surname" ref={inputValueSurName}/>

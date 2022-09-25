@@ -67,6 +67,8 @@ input {
     border: 1px solid #4ab0b0;
     border-radius: 15px;
     height: 30px;
+    box-shadow: 0px 2px 5px 0px;
+
 }
 
 
@@ -114,10 +116,9 @@ tr:nth-child(2n) {
 
 
 .serchContainer {
-    margin-top: 10px;
-    background: #74e0f9;
-    /*transform: translate(50px,0)*/
-    /*transition: all 5s linear*/
+    padding-top: 10px;
+    background: rgba(82, 175, 35, 0.51);
+border-radius: 15px;    /*transition: all 5s linear*/
 }
 
 .alert-enter {
@@ -194,6 +195,8 @@ tr:nth-child(2n) {
 
 .error {
     color: red;
+    font-family: cursive;
+    margin-left: 30px;
 }
 
 /*Favorite*/
