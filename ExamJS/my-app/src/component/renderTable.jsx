@@ -65,7 +65,7 @@ function Table(props) {
             <div className="fromTable">
                 <p className={Error? 'error':'none'}>Incorrect data, please enter the correct data</p>
                 <div className="form">
-                    <input placeholder="user" ref={inputValueName}/>
+                    <input placeholder="user" ref={inputValueName}/>         //попробоватьь можно через onChange={}
                     <input placeholder="surname" ref={inputValueSurName}/>
                     <input placeholder="age" ref={inputValueAge}/>
                     <input placeholder="rating min 0 max 10" ref={inputValueRating}/>

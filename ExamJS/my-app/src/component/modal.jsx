@@ -24,9 +24,9 @@ const EditModal = (props) => {
 
 // console.log(inputValueAge.current.value)
     }
-
-
     let idUser = Number(editUser)
+
+
 
 
     const EditClosedModal = () => {
@@ -49,7 +49,7 @@ const EditModal = (props) => {
 
         UseFunc(newUsers)
         // SetModalEdit(false)
-        if (inputValueName.current.value !== "" &&
+        if (inputValueName.current.value !== ""  &&
             inputValueSurName.current.value !== "" && //провверка на пустоту
             inputValueAge.current.value !== "" &&
             inputValueRating.current.value !== '' &&
@@ -57,14 +57,13 @@ const EditModal = (props) => {
             setError(false)
             SetModalEdit(false)
 
-        }return  setError(true)       &&    SetModalEdit(true)
+        }else  setError(true)
 
     }
 
-
     return (
-        <div className={modal ? ' modal' : 'none'}>
-            <h2 className={error ? ' error' : 'none'}>Error.Enter the correct values</h2>
+        <div className={modal ? 'modal' : 'none'}>
+            <h2 className={error ? 'error' : 'none'}>Error.Enter the correct values</h2>
             <div className="modalForm">
                 <input placeholder='Edit Name' type="text" ref={inputValueName}/>
                 <input placeholder='Edit SurName' type="text" ref={inputValueSurName}/>

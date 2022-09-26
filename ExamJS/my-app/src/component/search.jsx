@@ -9,7 +9,7 @@ const Search = (props) => {
     const [value, setValue] = useState("");
 
     const filterSearch = users.filter((int) => {
-        return int.name.toLowerCase().includes(value.toLowerCase()) || int.sername.toLowerCase().includes(value.toLowerCase()) || int.age.toLowerCase().includes(value.toLowerCase());
+        return int.name.toLowerCase().includes(value.toLowerCase()) || int.sername.toLowerCase().includes(value.toLowerCase()) || int.age.toLowerCase().includes(value.toLowerCase()) || int.rating.toLowerCase().includes(value.toLowerCase());
     });
 
 
