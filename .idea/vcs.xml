@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Native/AwesomeProject" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/component/form_Telegram/telegram-sender" vcs="Git" />
   </component>
 </project>

@@ -15,39 +15,39 @@ const Search = (props) => {
 
     return (
 
-            <CSSTransition
-                in={showSearch}
-                timeout={300}
-                classNames="alert"
-                unmountOnExit
-            >
-                <div className='serchContainer'>
+        <CSSTransition
+            in={showSearch}
+            timeout={300}
+            classNames="alert"
+            unmountOnExit
+        >
+            <div className='serchContainer'>
 
-                    <input
-                        type="text"
-                        onChange={(event) => setValue(event.target.value)}
-                        placeholder="search"
-                        ref={inputValueSearch}
-                        className='inputSearch'
-                    />
-                    <table className={value ? '' : 'classSearchTable'}>
-                        <th>Name</th>
-                        <th>Surname</th>
-                        <th>Age</th>
-                        <th>Rating</th>
-                        {filterSearch.map((int, element) => {
-                            return (
-                                <tr key={element}>
-                                    <td>{int.name}</td>
-                                    <td>{int.sername}</td>
-                                    <td>{int.age}</td>
-                                    <td>{int.rating}</td>
-                                </tr>
-                            );
-                        })}
-                    </table>
-                </div>
-            </CSSTransition>
+                <input
+                    type="text"
+                    onChange={(event) => setValue(event.target.value)}
+                    placeholder="search"
+                    ref={inputValueSearch}
+                    className='inputSearch'
+                />
+                <table className={value ? '' : 'classSearchTable'}>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Age</th>
+                    <th>Rating</th>
+                    {filterSearch.map((int, element) => {
+                        return (
+                            <tr key={element}>
+                                <td>{int.name}</td>
+                                <td>{int.sername}</td>
+                                <td>{int.age}</td>
+                                <td>{int.rating}</td>
+                            </tr>
+                        );
+                    })}
+                </table>
+            </div>
+        </CSSTransition>
     );
 };
 
