@@ -1,4 +1,6 @@
 import React, {useRef, useState} from "react";
+import GeneratorId from './ID'
+
 const EditBooks = (props) => {
     const modalWindow = props.modalWindow
     const setModalWindow = props.setModalWindow
@@ -86,7 +88,7 @@ const EditBooks = (props) => {
             setError(false)
             setBooks(books.concat([
                     {
-                        id:UnitGenerId(),
+                        id:GeneratorId(books),
                         name: inputValueName.current.value,
                         author: inputValueAuthor.current.value,
                         age: inputValueAge.current.value,
