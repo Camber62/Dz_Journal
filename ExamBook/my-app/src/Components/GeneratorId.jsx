@@ -1,6 +1,3 @@
-
-
-
 const GeneratorId = (elem) => {
     let max = 1
     for (let i = 0; i < elem.length; i++) {     //добавление id

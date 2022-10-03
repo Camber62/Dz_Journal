@@ -1,5 +1,5 @@
 import React, {useRef, useState} from "react";
-import GeneratorId from './ID'
+import GeneratorId from './GeneratorId'
 
 const EditBooks = (props) => {
     const modalWindow = props.modalWindow

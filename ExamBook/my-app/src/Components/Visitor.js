@@ -1,5 +1,5 @@
 import React, {useRef, useState} from "react";
-import GeneratorId from './ID'
+import GeneratorId from './GeneratorId'
 
 const Visitor = (props) => {
     const visitor = props.visitor
@@ -28,7 +28,7 @@ const Visitor = (props) => {
             )
         } else setError(true)
 
-        console.log(visitor)
+        // console.log(visitor)
     }
 
     return (<>
