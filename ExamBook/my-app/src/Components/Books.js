@@ -1,26 +1,25 @@
-import React from "react";
-import EditBooks from './ModalEditBooks'
-// import EditModal from "../../../../ExamJS/my-app/src/component/modal";
+import React, {useState} from "react";
+import EditBooks from './Edit_Add_Books'
 
 const Books = (props) => {
     const books = props.books
-    const SetBooks = props.SetBooks
+    const setBooks = props.SetBooks
     const modalWindow = props.modalWindow
     const setModalWindow = props.setModalWindow
-    let buttonElement
-
+    const [buttonElement,setButtonElement]=useState()
 
 
     const clickEdit=(element)=>{
-        buttonElement=Number(element.target.id)
+        setButtonElement(Number(element.target.id))
         setModalWindow(true)
+
     }
 
     const clickDelete = (element) => {
         const newBooks = books.filter(function (entry, index) {
             return index !== Number(element.target.id);
         });
-        SetBooks(newBooks);
+        setBooks(newBooks);
         // console.log(newBooks)
 
     };
@@ -31,10 +30,12 @@ const Books = (props) => {
 
             <div>
                 <EditBooks
-                    ModalEdit={modalWindow}
-                    SetModalEdit={setModalWindow}
-                    editBooks={books}
-                    setEditBooks={SetBooks}
+                    modalWindow={modalWindow}
+                    setModalWindow={setModalWindow}
+
+                    books={books}
+                    setBooks={setBooks}
+
                     buttonElement={buttonElement}
                 />
             </div>
@@ -56,10 +57,10 @@ const Books = (props) => {
                         <tr key={element}>
                             <td>{int.id}</td>
                             <td>{int.name}</td>
-                            <td>{int.Author}</td>
+                            <td>{int.author}</td>
                             <td>{int.age}</td>
                             <td>{int.publishing}</td>
-                            <td>{int.NumberPages}</td>
+                            <td>{int.numberPages}</td>
                             <td>{int.numberCopies}</td>
                             <td>
                                 <button className='buttonDel'

@@ -4,18 +4,28 @@ import Visitor from "./Visitor";
 import Books from "./Books";
 
 const NavigationHeader = () => {
-    const [books,SetBooks ]= useState([
+    const [modalWindow, setModalWindow] = useState(false)
+
+
+    const [books, SetBooks] = useState([
         {
             id: 1,
             name: 'Воина и Мир',
-            Author: 'Лев Толстой',
+            author: 'Лев Толстой',
             age: 1865,
             publishing: "Русский вестник",
-            NumberPages: 1300,
+            numberPages: 1300,
             numberCopies: 5
         }
     ])
-const [modalWindow,setModalWindow]=useState(true)
+    const [visitor, setVisitor] = useState([
+        {
+            id: 1,
+            name: 'Anonimys',
+            phone: `8 123 122 12 12`,
+
+        }
+    ])
 
 
 
@@ -33,8 +43,10 @@ const [modalWindow,setModalWindow]=useState(true)
                     </div>
                 </header>
                 <Routes>
-                    <Route path="/" element={<Books modalWindow={modalWindow} setModalWindow={setModalWindow}  SetBooks={SetBooks} books={books}/>}/>
-                    <Route path="/Visitor" element={<Visitor/>}/>
+                    <Route path="/"
+                           element={<Books modalWindow={modalWindow} setModalWindow={setModalWindow} SetBooks={SetBooks}
+                                           books={books}/>}/>
+                    <Route path="/Visitor" element={<Visitor visitor={visitor} setVisitor={setVisitor}/>}/>
                 </Routes>
             </div>
             <footer>Footer</footer>

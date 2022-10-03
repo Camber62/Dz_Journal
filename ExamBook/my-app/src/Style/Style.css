@@ -19,14 +19,11 @@ a {
 }
 
 
-
-
-
 table {
-    width: 99%;
+    width: 100%;
     border-spacing: 0px;
     border-collapse: collapse;
-    margin: 30px 10px 10px 10px;
+    /*margin: 30px 10px 10px 10px;*/
 
 }
 
@@ -50,12 +47,51 @@ tr:nth-child(2n) {
 }
 
 
-
-
-
-.none{
+.none {
     display: none;
 }
-.modal{
-display: flex;
+
+.modal {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    /*flex-direction: column;*/
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+.victors {
+    margin: 0 20px;
+
+}
+
+.title_victors {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    flex-direction: column;
+}
+
+.btn_victors {
+    width: 150px;
+    height: 30px;
+}
+
+.sort_search {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.title_victors_one {
+    display: flex;
+    justify-content: space-between;
+align-items: center;
+}
+.add_Visitor{
+    text-align: center;
+    margin-bottom: 10px;
 }
