@@ -1,11 +1,14 @@
 import React, {useRef, useState} from "react";
 import GeneratorId from './GeneratorId'
 import Sort from "./Sort";
+import Search from "./Search";
 
 const Visitor = (props) => {
     const visitor = props.visitor
     const setVisitor = props.setVisitor
     const [error, setError] = useState(false)
+    const [value, setValue] = useState("");
+    const [clonVisitor, setClonVisitor] = useState([]);
 
     const inputValueName = useRef(null);
     const inputValuePhone = useRef(null);
@@ -61,8 +64,8 @@ const Visitor = (props) => {
                     </div>
                     <div className='search'>
                         Search
-                        <input type="search"/>
-                        <button className='btn_Search'>Search</button>
+                        <input type="search" onChange={(event) => setValue(event.target.value)}/>
+                        <button className='btn_Search' onClick={()=>{Search(visitor,setVisitor,value,setClonVisitor)}}>Search</button>
                     </div>
                 </div>
                 <table>
@@ -72,7 +75,7 @@ const Visitor = (props) => {
                         <th>Phone</th>
                         <th>Edit</th>
                     </tr>
-                    {visitor.map((int, element) => {
+                    {(value==='' ? visitor:clonVisitor).map((int, element) => {
                         return (
                             <tr key={element}>
                                 <td>{int.id}</td>

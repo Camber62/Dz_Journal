@@ -16,6 +16,7 @@ const EditBooks = (props) => {
     const inputValueAuthor = useRef(null);
     const inputValuePublishing = useRef(null);
     const inputValueNumberCopies = useRef(null);
+    const inputValueSearch = useRef(null);
 
 
     for (let i = 0; i < books.length; i++) {
@@ -68,15 +69,7 @@ const EditBooks = (props) => {
     }
 
 
-    const UnitGenerId = (books) => {
-        let max = 1
-        for (let i = 0; i < books.length; i++) {     //добавление id
-            if ((books)[i].id > max) {
-                max = (books)[i].id
-            }
-        }
-        return max + 1
-    }
+
 
     const AddBooksBtn=()=>{
         if (inputValueName.current.value !== "" &&
@@ -117,6 +110,10 @@ const EditBooks = (props) => {
                 <input placeholder='numberCopies' type="text" ref={inputValueNumberCopies}/>
                 <button onClick={EditBooksBtn}>Edit</button>
                 <button onClick={AddBooksBtn}>Add</button>
+            </div>
+            <div className='search'>
+                <input placeholder='Search' type="text" ref={inputValueSearch}/>
+                <button className="btn_search">Search</button>
             </div>
         </div>
 

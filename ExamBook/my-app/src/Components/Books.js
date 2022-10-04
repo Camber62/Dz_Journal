@@ -21,10 +21,8 @@ const Books = (props) => {
             return index !== Number(element.target.id);
         });
         setBooks(newBooks);
-        // console.log(newBooks)
 
     };
-// const elem=e.target.innerText
 
     return (
         <>
