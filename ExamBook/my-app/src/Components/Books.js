@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import EditBooks from './Edit_Add_Books'
+import Sort from "./Sort";
 
 const Books = (props) => {
     const books = props.books
@@ -23,12 +24,12 @@ const Books = (props) => {
         // console.log(newBooks)
 
     };
-
+// const elem=e.target.innerText
 
     return (
         <>
 
-            <div>
+            <div className='Books'>
                 <EditBooks
                     modalWindow={modalWindow}
                     setModalWindow={setModalWindow}
@@ -38,16 +39,16 @@ const Books = (props) => {
 
                     buttonElement={buttonElement}
                 />
-            </div>
+
             <table>
                 <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>Author</th>
-                    <th>age</th>
-                    <th>publishing</th>
-                    <th>NumberPages</th>
-                    <th>numberCopies</th>
+                    <th value="id" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>id</th>
+                    <th value="name" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>name</th>
+                    <th value="author" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Author</th>
+                    <th value="age" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>age</th>
+                    <th value="publishing" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>publishing</th>
+                    <th value="numberPages" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>NumberPages</th>
+                    <th value="numberCopies" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>numberCopies</th>
                     <th>Delete</th>
                 </tr>
 
@@ -79,7 +80,7 @@ const Books = (props) => {
                     );
                 })}
             </table>
-
+            </div>
 
         </>
     )

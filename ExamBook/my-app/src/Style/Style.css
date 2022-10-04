@@ -63,7 +63,7 @@ tr:nth-child(2n) {
     text-align: center;
 }
 
-.victors {
+.victors,.Books {
     margin: 0 20px;
 
 }
@@ -75,7 +75,7 @@ tr:nth-child(2n) {
     flex-direction: column;
 }
 
-.btn_victors {
+.btn_victors_add {
     width: 150px;
     height: 30px;
 }

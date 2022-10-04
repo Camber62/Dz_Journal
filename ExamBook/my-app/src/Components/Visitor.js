@@ -36,7 +36,7 @@ const Visitor = (props) => {
             <div className='victors'>
                 <div className='title_victors'>
                     <div className='title_victors_one'><h2 style={{color: '#378e9f'}}>ALL VICTORS:</h2>
-                        <button className='btn_victors' onClick={newVictors}>New victors</button>
+                        <button className='btn_victors_add' onClick={newVictors}>New victors</button>
                     </div>
 
                     <div className="add_Visitor">
