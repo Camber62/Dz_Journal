@@ -1,5 +1,6 @@
 import React, {useRef, useState} from "react";
 import GeneratorId from './GeneratorId'
+import Sort from "./Sort";
 
 const Visitor = (props) => {
     const visitor = props.visitor
@@ -8,7 +9,7 @@ const Visitor = (props) => {
 
     const inputValueName = useRef(null);
     const inputValuePhone = useRef(null);
-
+    const [optionValue, setOptionValue] = useState('id')
 
 
     const newVictors = () => {
@@ -49,11 +50,14 @@ const Visitor = (props) => {
                 <div className='sort_search'>
                     <div className='sort'>
                         Sort by:
-                        <select name="select" size="1">
-                            <option selected value="s1">Id</option>
-                            <option value="s2">Name</option>
-                            <option value="s3">Phone</option>
+                        <select onChange={e => {
+                            setOptionValue(e.target.value)
+                        }} className='victors_sort' name="select" size="1">
+                            <option selected value="id">Id</option>
+                            <option value="name">Name</option>
+                            <option value="phone">Phone</option>
                         </select>
+                        <button onClick={()=>{Sort(visitor,setVisitor,optionValue)}}>Sort</button>
                     </div>
                     <div className='search'>
                         Search
