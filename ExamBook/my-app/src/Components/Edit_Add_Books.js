@@ -1,5 +1,6 @@
 import React, {useRef, useState} from "react";
 import GeneratorId from './GeneratorId'
+import Search from "./Search";
 
 const EditBooks = (props) => {
     const modalWindow = props.modalWindow
@@ -8,7 +9,9 @@ const EditBooks = (props) => {
     const setBooks = props.setBooks
     const buttonElement = props.buttonElement
     const [error, setError] = useState(false)
-
+    const value = props.value
+    const setValue = props.setValue
+    const setClonBooks = props.setClonBooks
 
     const inputValueAge = useRef(null);
     const inputValueName = useRef(null);
@@ -16,7 +19,6 @@ const EditBooks = (props) => {
     const inputValueAuthor = useRef(null);
     const inputValuePublishing = useRef(null);
     const inputValueNumberCopies = useRef(null);
-    const inputValueSearch = useRef(null);
 
 
     for (let i = 0; i < books.length; i++) {
@@ -69,9 +71,7 @@ const EditBooks = (props) => {
     }
 
 
-
-
-    const AddBooksBtn=()=>{
+    const AddBooksBtn = () => {
         if (inputValueName.current.value !== "" &&
             inputValuePages.current.value !== "" &&
             inputValueAge.current.value !== "" &&
@@ -81,7 +81,7 @@ const EditBooks = (props) => {
             setError(false)
             setBooks(books.concat([
                     {
-                        id:GeneratorId(books),
+                        id: GeneratorId(books),
                         name: inputValueName.current.value,
                         author: inputValueAuthor.current.value,
                         age: inputValueAge.current.value,
@@ -91,34 +91,36 @@ const EditBooks = (props) => {
                     }
 
                 ])
-
             )
-        }else setError(true)
+        } else setError(true)
     }
-
 
 
     return (
         <>
-        <div className={'modal'}>
-            <div className="modalForm">
-                <input placeholder='Name' type="text" ref={inputValueName}/>
-                <input placeholder='Author' type="text" ref={inputValueAuthor}/>
-                <input placeholder='Age' type="text" ref={inputValueAge}/>
-                <input placeholder='publishing' type="text" ref={inputValuePublishing}/>
-                <input placeholder='NumberPages' type="text" ref={inputValuePages}/>
-                <input placeholder='numberCopies' type="text" ref={inputValueNumberCopies}/>
-                <button onClick={EditBooksBtn}>Edit</button>
-                <button onClick={AddBooksBtn}>Add</button>
+            <div className={'modal'}>
+                <h2 style={{color:'rgb(55, 142, 159)'}}>BOOKS:</h2>
+                <div className="modalForm">
+                    <input placeholder='Name' type="text" ref={inputValueName}/>
+                    <input placeholder='Author' type="text" ref={inputValueAuthor}/>
+                    <input placeholder='Age' type="text" ref={inputValueAge}/>
+                    <input placeholder='publishing' type="text" ref={inputValuePublishing}/>
+                    <input placeholder='NumberPages' type="text" ref={inputValuePages}/>
+                    <input placeholder='numberCopies' type="text" ref={inputValueNumberCopies}/>
+                    <button onClick={EditBooksBtn}>Edit</button>
+                    <button onClick={AddBooksBtn}>Add</button>
+                </div>
+                <div className='search'>
+                    <input placeholder='Search' type="search" onChange={(event) => setValue(event.target.value)}/>
+                    <button className="btn_Search" onClick={() => {
+                        Search(books, setBooks, value, setClonBooks)
+                    }}>Search
+                    </button>
+                </div>
             </div>
-            <div className='search'>
-                <input placeholder='Search' type="text" ref={inputValueSearch}/>
-                <button className="btn_search">Search</button>
-            </div>
-        </div>
 
-                <h2 className={error ? 'error' : 'none'}>Error.Enter the correct values</h2>
-            </>
+            <h2 className={error ? 'error' : 'none'}>Error.Enter the correct values</h2>
+        </>
     )
 }
 

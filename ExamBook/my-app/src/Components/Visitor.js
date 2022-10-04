@@ -9,13 +9,19 @@ const Visitor = (props) => {
     const [error, setError] = useState(false)
     const [value, setValue] = useState("");
     const [clonVisitor, setClonVisitor] = useState([]);
+    const [modalEditClose, setModalEditClose] = useState(false);
+    const[idNumber,setIdNumber]=useState()
 
+
+    const [optionValue, setOptionValue] = useState('id')
     const inputValueName = useRef(null);
     const inputValuePhone = useRef(null);
-    const [optionValue, setOptionValue] = useState('id')
+    const inputValueNameEditVisition = useRef(null);
+    const inputValuePhoneEditVisition = useRef(null);
 
 
     const newVictors = () => {
+
         if (inputValueName.current.value !== "" &&
             inputValuePhone.current.value !== ""
         ) {
@@ -31,20 +37,67 @@ const Visitor = (props) => {
                 ])
             )
         } else setError(true)
-
         // console.log(visitor)
     }
 
+    const clickEditVisition=(e)=>{
+        setIdNumber(Number(e.target.getAttribute("id")))
+        setModalEditClose(true)
+
+    }
+
+
+
+
+    for (let i = 0; i < visitor.length; i++) {
+        if (modalEditClose === true && i === idNumber) {
+            inputValueNameEditVisition.current.value = visitor[i].name
+            inputValuePhoneEditVisition.current.value = visitor[i].phone
+
+        }
+    }
+
+
+
+
+
+
+    const EditVisition=()=>{
+        const newVisition = visitor.map((post, index) => {
+            if (index !== idNumber) {
+                return post
+
+            }
+            return {
+                ...post,
+                name: inputValueNameEditVisition.current.value,
+                phone: inputValuePhoneEditVisition.current.value,
+            }
+
+        });
+        setVisitor(newVisition)
+        setModalEditClose(false)
+    }
+
+
     return (<>
+            <div className={modalEditClose?'modalFormEditVisition':'none'}>
+                <div className='inputEditVisition'>
+                    <input type="text" ref={inputValueNameEditVisition}/>
+                    <input type="text" ref={inputValuePhoneEditVisition}/>
+                <button onClick={()=>{EditVisition()}}>edit</button>
+                </div>
+            </div>
             <div className='victors'>
                 <div className='title_victors'>
                     <div className='title_victors_one'><h2 style={{color: '#378e9f'}}>ALL VICTORS:</h2>
-                        <button className='btn_victors_add' onClick={newVictors}>New victors</button>
                     </div>
 
                     <div className="add_Visitor">
                         <input type="text" placeholder='Name' ref={inputValueName}/>
                         <input type="text" placeholder='phone' ref={inputValuePhone}/>
+                        <button className='btn_victors_add' onClick={newVictors}>New victors</button>
+
                         <h2 className={error ? 'error' : 'none'}>Error.Enter the correct values</h2>
                     </div>
 
@@ -85,7 +138,7 @@ const Visitor = (props) => {
 
                                     <button className='buttonEdit'
                                             id={element}
-                                        // onClick={clickEdit}
+                                        onClick={clickEditVisition}
                                     >Edit
                                     </button>
 

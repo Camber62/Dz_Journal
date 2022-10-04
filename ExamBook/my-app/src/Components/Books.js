@@ -8,7 +8,8 @@ const Books = (props) => {
     const modalWindow = props.modalWindow
     const setModalWindow = props.setModalWindow
     const [buttonElement,setButtonElement]=useState()
-
+    const [value, setValue] = useState("");
+    const [clonBooks, setClonBooks] = useState([]);
 
     const clickEdit=(element)=>{
         setButtonElement(Number(element.target.id))
@@ -32,26 +33,31 @@ const Books = (props) => {
                     modalWindow={modalWindow}
                     setModalWindow={setModalWindow}
 
+                    value={value}
+                    setValue={setValue}
+                    setClonBooks={setClonBooks}
+
                     books={books}
                     setBooks={setBooks}
 
                     buttonElement={buttonElement}
+
                 />
 
             <table>
                 <tr>
                     <th value="id" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>id</th>
-                    <th value="name" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>name</th>
-                    <th value="author" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Author</th>
-                    <th value="age" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>age</th>
-                    <th value="publishing" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>publishing</th>
-                    <th value="numberPages" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>NumberPages</th>
-                    <th value="numberCopies" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>numberCopies</th>
+                    <th value="name" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Title</th>
+                    <th value="author" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Author's name</th>
+                    <th value="age" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Publishing year</th>
+                    <th value="publishing" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>The name of the publisher</th>
+                    <th value="numberPages" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Number of pages</th>
+                    <th value="numberCopies" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>The number of copies in the library</th>
                     <th>Delete</th>
                 </tr>
 
 
-                {books.map((int, element) => {
+                {(value==='' ? books:clonBooks).map((int, element) => {
                     return (
                         <tr key={element}>
                             <td>{int.id}</td>
