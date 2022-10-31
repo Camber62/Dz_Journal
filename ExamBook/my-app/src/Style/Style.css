@@ -20,15 +20,16 @@ a {
 
 
 table {
-    width: 100%;
+    margin: auto;
     border-spacing: 0px;
     border-collapse: collapse;
-    /*margin: 30px 10px 10px 10px;*/
+    width: 70%;
 
 }
 
 th {
     background: bisque;
+    /*width: 50%;*/
 }
 
 td {
@@ -40,6 +41,7 @@ td {
 tr {
     text-align: center;
     border-radius: 15px;
+    /*width: 20vw;*/
 }
 
 tr:nth-child(2n) {
@@ -54,12 +56,12 @@ tr:nth-child(2n) {
 .modal {
     display: flex;
     padding: 10px 0;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 input {
-    width: 100px;
+    width: 200px;
 }
 
 button {
@@ -71,28 +73,6 @@ button {
     text-align: center;
 }
 
-.victors, .Books {
-    margin: 0 20px;
-
-}
-
-.title_victors {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid gray;
-}
-
-.btn_victors_add {
-    width: 150px;
-    height: 30px;
-}
-
-.sort_search {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0;
-}
 
 .title_victors_one {
     display: flex;
@@ -100,18 +80,13 @@ button {
     align-items: center;
 }
 
-.add_Visitor {
-    text-align: center;
-    margin-bottom: 10px;
+label{
+    justify-content: space-evenly;
 }
 
-.victors_sort {
-    margin: 10px;
-    width: 100px;
+.decoration{
+    text-decoration: line-through;
 }
-
-
-
 
 .modalFormEditVisition{
     display: flex;
@@ -121,7 +96,4 @@ button {
     width: 100%;
     height: 100%;
     background: #5d5d5db0;
-}
-.inputEditVisition{
-
 }

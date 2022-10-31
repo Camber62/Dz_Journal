@@ -1,29 +1,31 @@
 import React, {useState} from "react";
 import EditBooks from './Edit_Add_Books'
-import Sort from "./Sort";
+import * as Icon from "react-icons/fi";
+import Checkbox from "react-custom-checkbox";
 
 const Books = (props) => {
-    const books = props.books
-    const setBooks = props.SetBooks
+    const toDoList = props.toDoList
+    const SetToDoList = props.SetToDoList
     const modalWindow = props.modalWindow
     const setModalWindow = props.setModalWindow
-    const [buttonElement,setButtonElement]=useState()
+    const [buttonElement, setButtonElement] = useState()
     const [value, setValue] = useState("");
-    const [clonBooks, setClonBooks] = useState([]);
-
-    const clickEdit=(element)=>{
+    // const [cloneBooks, setCloneBooks] = useState([]);
+    const [checkbox, setCheckbox] = useState(null)
+    const clickEdit = (element) => {
         setButtonElement(Number(element.target.id))
-        setModalWindow(true)
+        // setModalWindow(true)
 
     }
 
     const clickDelete = (element) => {
-        const newBooks = books.filter(function (entry, index) {
+        const newToDoList = toDoList.filter(function (entry, index) {
             return index !== Number(element.target.id);
         });
-        setBooks(newBooks);
+        SetToDoList(newToDoList);
 
     };
+
 
     return (
         <>
@@ -32,58 +34,73 @@ const Books = (props) => {
                 <EditBooks
                     modalWindow={modalWindow}
                     setModalWindow={setModalWindow}
-
                     value={value}
                     setValue={setValue}
-                    setClonBooks={setClonBooks}
-
-                    books={books}
-                    setBooks={setBooks}
-
+                    // setClonBooks={setCloneBooks}
+                    toDoList={toDoList}
+                    SetToDoList={SetToDoList}
                     buttonElement={buttonElement}
 
                 />
 
-            <table>
-                <tr>
-                    <th value="id" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>id</th>
-                    <th value="name" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Title</th>
-                    <th value="author" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Author's name</th>
-                    <th value="age" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Publishing year</th>
-                    <th value="publishing" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>The name of the publisher</th>
-                    <th value="numberPages" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>Number of pages</th>
-                    <th value="numberCopies" onClick={(e)=>{Sort(books,setBooks,e.target.getAttribute("value"))}}>The number of copies in the library</th>
-                    <th>Delete</th>
-                </tr>
+                <table>
+                    <tr>
+                        <th>Completed</th>
+                        <th>Todo...</th>
+                        <th>Delete/Edit</th>
+                    </tr>
 
 
-                {(value==='' ? books:clonBooks).map((int, element) => {
-                    return (
-                        <tr key={element}>
-                            <td>{int.id}</td>
-                            <td>{int.name}</td>
-                            <td>{int.author}</td>
-                            <td>{int.age}</td>
-                            <td>{int.publishing}</td>
-                            <td>{int.numberPages}</td>
-                            <td>{int.numberCopies}</td>
-                            <td>
-                                <button className='buttonDel'
-                                        id={element}
-                                        onClick={clickDelete}
-                                >Delete
-                                </button>
-                                <button className='buttonEdit'
-                                        id={element}
-                                        onClick={clickEdit}
-                                >Edit
-                                </button>
+                    {toDoList.map((int, element) => {
+                        return (
+                            <tr key={element}>
 
-                            </td>
-                        </tr>
-                    );
-                })}
-            </table>
+                                <td>
+                                    <Checkbox
+                                    checked={false}
+                                    icon={
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                flex: 1,
+                                                backgroundColor: "#174A41",
+                                                alignSelf: "stretch",
+                                            }}
+                                        >
+                                            <Icon.FiCheck color="white" size={20}
+                                            />
+                                        </div>}
+                                    borderColor="#174A41"
+                                    borderRadius={20}
+                                    style={{overflow: "hidden",}}
+                                    size={20}
+                                    onChange={(value) => {
+                                        int.checked = !value
+                                        // console.log(toDoList)
+                                    }}
+                                    // labelStyle={checkbox ? {textDecoration:'line-through'}:{textDecoration:'none'}}
+                                />
+                                </td>
+
+                                <td className={int.checked ? 'block' : 'decoration'}>{int.todo}</td>
+                                <td>
+                                    <button className='buttonDel'
+                                            id={element}
+                                            onClick={clickDelete}
+                                    >Delete
+                                    </button>
+                                    <button className='buttonEdit'
+                                            id={element}
+                                            onClick={clickEdit}
+                                    >Edit
+                                    </button>
+
+                                </td>
+
+                            </tr>
+                        );
+                    })}
+                </table>
             </div>
 
         </>

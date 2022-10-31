@@ -1,93 +1,59 @@
 import React, {useRef, useState} from "react";
 import GeneratorId from './GeneratorId'
-import Search from "./Search";
 
 const EditBooks = (props) => {
     const modalWindow = props.modalWindow
     const setModalWindow = props.setModalWindow
-    const books = props.books
-    const setBooks = props.setBooks
+    const toDoList = props.toDoList
+    const SetToDoList = props.SetToDoList
     const buttonElement = props.buttonElement
     const [error, setError] = useState(false)
-    const value = props.value
-    const setValue = props.setValue
-    const setClonBooks = props.setClonBooks
 
-    const inputValueAge = useRef(null);
-    const inputValueName = useRef(null);
-    const inputValuePages = useRef(null);
-    const inputValueAuthor = useRef(null);
-    const inputValuePublishing = useRef(null);
-    const inputValueNumberCopies = useRef(null);
+    const inputValueTodo = useRef(null);
 
 
-    for (let i = 0; i < books.length; i++) {
+    for (let i = 0; i < toDoList.length; i++) {
         if (modalWindow === true && i === buttonElement) {
-            inputValueName.current.value = books[i].name
-            inputValuePages.current.value = books[i].numberPages
-            inputValueAge.current.value = books[i].age
-            inputValueAuthor.current.value = books[i].author
-            inputValuePublishing.current.value = books[i].publishing
-            inputValueNumberCopies.current.value = books[i].numberCopies
+            inputValueTodo.current.value = toDoList[i].todo
         }
-
-
     }
 
+
+
     const EditBooksBtn = () => {
-        const newBooks = books.map((post, index) => {
+        const newBooks = toDoList.map((post, index) => {
             if (index !== buttonElement) {
                 return post
-
             }
             return {
                 ...post,
-                name: inputValueName.current.value,
-                author: inputValueAuthor.current.value,
-                age: inputValueAge.current.value,
-                publishing: inputValuePublishing.current.value,
-                numberPages: inputValuePages.current.value,
-                numberCopies: inputValueNumberCopies.current.value,
-
+                todo: inputValueTodo.current.value,
+                checked:false,
             }
-
-
         });
 
-
-        if (inputValueName.current.value !== "" &&
-            inputValuePages.current.value !== "" &&
-            inputValueAge.current.value !== "" &&
-            inputValueAuthor.current.value !== "" &&
-            inputValuePublishing.current.value !== "" &&
-            inputValueNumberCopies.current.value !== "") {
+        if (
+            inputValueTodo.current.value !== "") {
             setError(false)
 
         } else
             setError(true)
 
-        setBooks(newBooks)
-        setModalWindow(false)
+        SetToDoList(newBooks)
+        // setModalWindow(false)
     }
 
 
+
+
     const AddBooksBtn = () => {
-        if (inputValueName.current.value !== "" &&
-            inputValuePages.current.value !== "" &&
-            inputValueAge.current.value !== "" &&
-            inputValueAuthor.current.value !== "" &&
-            inputValuePublishing.current.value !== "" &&
-            inputValueNumberCopies.current.value !== "") {
+        if (
+            inputValueTodo.current.value !== "") {
             setError(false)
-            setBooks(books.concat([
+            SetToDoList(toDoList.concat([
                     {
-                        id: GeneratorId(books),
-                        name: inputValueName.current.value,
-                        author: inputValueAuthor.current.value,
-                        age: inputValueAge.current.value,
-                        publishing: inputValuePublishing.current.value,
-                        numberPages: inputValuePages.current.value,
-                        numberCopies: inputValueNumberCopies.current.value,
+                        id: GeneratorId(toDoList),
+                        todo: inputValueTodo.current.value,
                     }
 
                 ])
@@ -99,23 +65,11 @@ const EditBooks = (props) => {
     return (
         <>
             <div className={'modal'}>
-                <h2 style={{color:'rgb(55, 142, 159)'}}>BOOKS:</h2>
+                <h1 style={{color: 'rgb(55, 142, 159)'}}>todos:</h1>
                 <div className="modalForm">
-                    <input placeholder='Name' type="text" ref={inputValueName}/>
-                    <input placeholder='Author' type="text" ref={inputValueAuthor}/>
-                    <input placeholder='Age' type="text" ref={inputValueAge}/>
-                    <input placeholder='publishing' type="text" ref={inputValuePublishing}/>
-                    <input placeholder='NumberPages' type="text" ref={inputValuePages}/>
-                    <input placeholder='numberCopies' type="text" ref={inputValueNumberCopies}/>
+                    <input placeholder='todo...' type="text" ref={inputValueTodo}/>
                     <button onClick={EditBooksBtn}>Edit</button>
                     <button onClick={AddBooksBtn}>Add</button>
-                </div>
-                <div className='search'>
-                    <input placeholder='Search' type="search" onChange={(event) => setValue(event.target.value)}/>
-                    <button className="btn_Search" onClick={() => {
-                        Search(books, setBooks, value, setClonBooks)
-                    }}>Search
-                    </button>
                 </div>
             </div>
 
