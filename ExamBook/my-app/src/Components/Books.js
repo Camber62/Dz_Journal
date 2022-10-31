@@ -26,6 +26,9 @@ const Books = (props) => {
 
     };
 
+    // const Werty=(int)=>{
+    //     int.checkedValue = !value
+    // }
 
     return (
         <>
@@ -36,7 +39,6 @@ const Books = (props) => {
                     setModalWindow={setModalWindow}
                     value={value}
                     setValue={setValue}
-                    // setClonBooks={setCloneBooks}
                     toDoList={toDoList}
                     SetToDoList={SetToDoList}
                     buttonElement={buttonElement}
@@ -74,15 +76,15 @@ const Books = (props) => {
                                     borderRadius={20}
                                     style={{overflow: "hidden",}}
                                     size={20}
-                                    onChange={(value) => {
-                                        int.checked = !value
-                                        // console.log(toDoList)
+                                    onChange={() => {
+                                        int.checkedValue = !int.checkedValue
+                                        console.log(int)
                                     }}
                                     // labelStyle={checkbox ? {textDecoration:'line-through'}:{textDecoration:'none'}}
                                 />
                                 </td>
 
-                                <td className={int.checked ? 'block' : 'decoration'}>{int.todo}</td>
+                                <td className={int.checkedValue ? 'block' : 'decoration'}>{int.todo}</td>
                                 <td>
                                     <button className='buttonDel'
                                             id={element}

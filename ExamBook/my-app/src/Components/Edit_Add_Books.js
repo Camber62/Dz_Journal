@@ -28,7 +28,6 @@ const EditBooks = (props) => {
             return {
                 ...post,
                 todo: inputValueTodo.current.value,
-                checked:false,
             }
         });
 
@@ -54,6 +53,8 @@ const EditBooks = (props) => {
                     {
                         id: GeneratorId(toDoList),
                         todo: inputValueTodo.current.value,
+                        checkedValue:false,
+
                     }
 
                 ])

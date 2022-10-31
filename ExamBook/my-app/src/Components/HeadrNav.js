@@ -10,7 +10,7 @@ const NavigationHeader = () => {
         {
             id: 1,
             todo: 'Воина и Мир',
-            checked:false,
+            checkedValue:false,
         }
     ])
 
